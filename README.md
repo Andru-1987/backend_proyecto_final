@@ -12,3 +12,5 @@ Mockup:
   - [SINAPSIS WEB BLOG STORE](https://www.figma.com/file/ejHh0EJ4F0VVpPUFi598qV/SINAPSIS-STORE?node-id=0%3A1&t=wGkqEdioef3VQpAl-1)
 
 Deadline : 24 Abril 2023
+
+Integrante : Anderson Ocaña
