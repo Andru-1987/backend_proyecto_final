@@ -5,8 +5,8 @@ from django.urls import include
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 
-urlpattersn = [
+urlpatterns = [
     path("login/",LoginView.as_view(template_name="custom_login.html"), name="login"),
-    path("login/",LoginView.as_view(), name="logout")
+    path("logout/",LoginView.as_view(), name="logout")
 ]
 

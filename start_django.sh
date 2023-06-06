@@ -1,3 +1,4 @@
 #!/bin/bash
 
-source ./venv/bin/activate
+
+python sinapsis_web/manage.py runserver 
