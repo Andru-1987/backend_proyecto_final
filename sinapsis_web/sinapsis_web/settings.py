@@ -21,7 +21,8 @@ ALLOWED_HOSTS = []
 
 APPS = [
     "cliente_user",
-    "custom_user"
+    "custom_user",
+    "login_app"
 ]
 
 LOCAL_APPS =[ f"apps_sinapsis.{app}" for app in APPS ]
