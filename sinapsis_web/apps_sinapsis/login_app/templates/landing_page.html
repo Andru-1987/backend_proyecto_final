@@ -1,0 +1,15 @@
+{% extends "base_proyecto.html" %}
+
+<!-- bloque de codigo -->
+{% block content %}
+
+<h1 class="logo">SINAPSIS WEB BLOG STORE</h1>
+<div>
+    <button>
+        <a href="{% url 'login' %}">LOGIN</a>
+    </button>
+    <button>
+        <a href="{% url 'register' %}">REGISTER</a>
+    </button>
+</div>
+{% endblock %}
