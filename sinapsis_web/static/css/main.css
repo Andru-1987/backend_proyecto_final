@@ -1,3 +1,11 @@
+@import url("./components/Boton.css");
+
+:root{
+  --btn-login: green ;
+  --btn-register:blue ;
+}
+
+
 body {
     margin: 0;
     padding: 0;
