@@ -1,0 +1,56 @@
+.form-container{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  color:var(--website-color) ;
+  justify-items: center;
+  align-content: center;
+  gap: 1rem;
+}
+
+
+.form-container{
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.form-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.h2-label{
+  height: 3rem;
+  font-size: 4rem;
+}
+
+form {
+  color:var(--website-color);
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  background-color: #111;
+  border-radius: 5px;
+}
+
+.helptext , li {
+  font-size: 1rem;
+  color:#999
+}
+
+form > p {
+  display: flex;
+  flex-direction: column;
+}
+
+form > p > input{
+   background: transparent;
+   border: none;
+   border-bottom: 1px solid #999;
+   outline: none;
+   margin: 3%;
+   color: blueviolet;
+   font-size: var(--btn-register);
+}

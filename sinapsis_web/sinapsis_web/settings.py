@@ -23,7 +23,7 @@ ALLOWED_HOSTS = []
 APPS = [
     "cliente_user",
     "custom_user",
-    "login_app"
+    "login_app",
 ]
 
 LOCAL_APPS =[ f"apps_sinapsis.{app}" for app in APPS ]
@@ -133,8 +133,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CUSTOMIZACION DEL USUARIO SIN NECESIDAD DE TOCAR EL MODELO DEL TIPO 
 # DE LA BASE DE DATOS, COLOCANDOLO COMO UN METODO
-
-AUTH_USER_MODEL = "apps_sinapsis.custom_user"
-
 
 AUTH_USER_MODEL = "custom_user.CustomUser"

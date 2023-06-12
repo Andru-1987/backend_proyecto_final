@@ -1,0 +1,17 @@
+{% extends 'base_proyecto.html' %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+    <div>
+        <h2 class="h2-label">Register</h2>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="btn-container">
+            <button type="submit" class="btn-register">Register</button>
+            <button class="btn-login"> <a href="{% url 'landing_page' %}">Home</a></button>
+        </div>
+    </form>
+</div>
+{% endblock %}
