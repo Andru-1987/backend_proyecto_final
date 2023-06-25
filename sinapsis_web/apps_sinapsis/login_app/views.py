@@ -13,12 +13,14 @@ class LandingPage(TemplateView):
 
 
 class RegisterPage(CreateView):
+
     form_class = CustomUserForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
     extra_context = {
         'title': 'Register'
     }
+
     def form_valid(self, form):
         response = super().form_valid(form)
         email = form.cleaned_data.get('email')

@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300&display=swap");
+@import url("./books-grid.css");
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Tajawal", "Raleway", sans-serif;
+    background-color: #000;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    color: white;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid white;
+    height: 50%;
+}
+
+.logo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav {
+    max-width: 60%;
+    flex-grow: 4;
+    font-size: 2rem;
+}
+
+header .nav > ul {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    justify-content: space-between;
+    color: #999;
+}
+
+header .nav > ul > li {
+    list-style: none;
+    padding: 10px;
+}
+
+.nav > ul a {
+    text-decoration: none;
+    height: 100%;
+}
+
+a:active,
+a:focus,
+a:visited {
+    color: #999;
+}
+
+main {
+    color: white;
+}
+
+.active {
+    font-weight: 900;
+    color: white;
+    transform: scale(1.2);
+}

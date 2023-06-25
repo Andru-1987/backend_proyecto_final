@@ -1,0 +1,47 @@
+{% extends 'sinapsis_base.html' %}
+
+{% block content %}
+
+{% for book in book_list%}
+<div>
+    <div>
+        {{ book.nombre}}
+    </div>
+
+    {% for genero in book.genero.all%}
+    <div>
+        {{ genero }}
+    </div>
+    {% endfor %}
+
+    <hr>
+    <h3>Tiendas</h3>
+    <div>
+
+        {% for store in book.store.all%}
+
+        <span>
+            {{store}}
+        </span>
+
+        {% endfor%}
+    </div>
+
+    <p>ISBN: {{book.isbn}}</p>
+    <p>Paginas : {{book.paginas}}</p>
+    <p>PRECIO: {% if book.currency == 'PS'%}
+        Pesos Argentinos
+        {% elif book.currency == 'EU' %}
+        Euros
+        {%else%}
+        Dolares
+        {% endif %}
+        {{book.precio}}</p>
+    <hr>
+    <p>Sinapsis:
+        {{book.sinapsis}}
+    </p>
+</div>
+{% endfor %}
+
+{% endblock %}

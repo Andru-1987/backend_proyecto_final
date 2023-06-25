@@ -24,6 +24,8 @@ APPS = [
     "cliente_user",
     "custom_user",
     "login_app",
+    "books",
+    "reviews",
 ]
 
 LOCAL_APPS =[ f"apps_sinapsis.{app}" for app in APPS ]
