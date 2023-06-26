@@ -15,8 +15,8 @@
     <header>
         <div class="logo">
             <h1>
+                <a href="{% url 'landing_page' %}">SINAPSIS BLOG STORE</a>
 
-                SINAPSIS BLOG STORE
             </h1>
         </div>
 
@@ -42,10 +42,15 @@
     </header>
     <main>
         <div>
-            <h3>Bienvenido! {{ user.email }}</h3>
+            {% if user.nombre %}
+            <h3>Bienvenido! {{ user }}</h3>
             <button class="extra">
                 <a href="{% url 'logout' %}">Logout</a>
             </button>
+
+            {% else %}
+            <h3>Bienvenido! </h3>
+            {% endif %}
         </div>
 
         {% block content%}

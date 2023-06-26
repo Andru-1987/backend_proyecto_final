@@ -7,6 +7,9 @@ from django.views.generic.edit import CreateView
 
 from .models import Review
 from apps_sinapsis.books.models import Book
+from apps_sinapsis.sinapsis_cliente.mixins import OwnerSinapsisMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from django.db.models import Q
 
@@ -41,7 +44,8 @@ class ReviewQueriesList(ReviewBaseList,ListView):
         return context
     
     
-class ReviewCreateView(CreateView):
+class ReviewCreateView(LoginRequiredMixin,OwnerSinapsisMixin,CreateView):
+    
     template_name = "review_create.html"
     form_class = ReviewForm
     success_url = reverse_lazy('reviews:all')

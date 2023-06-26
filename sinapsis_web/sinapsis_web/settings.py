@@ -13,20 +13,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-yo4rdv&puo*i5r*-oett8_-y#9u+t++50pacsz9ye4mn1$28bx"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 APPS = [
 
-    "custom_user",
     "login_app",
     "books",
     "reviews",
-    "cliente"
+    "sinapsis_cliente",
+    
 ]
 
 LOCAL_APPS =[ f"apps_sinapsis.{app}" for app in APPS ]
@@ -80,9 +80,20 @@ WSGI_APPLICATION = "sinapsis_web.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'default': {
+
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+                'NAME': "sinapsis_web",
+
+                'USER': "postgres_admin",
+
+                'PASSWORD': "admin",
+
+                'HOST': "127.0.0.1",
+
+                'PORT': "5432",
+
     }
 }
 
@@ -138,10 +149,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+LOGIN_REDIRECT_URL = "/books/"
+LOGOUT_REDIRECT_URL = "/"
 
-# CUSTOMIZACION DEL USUARIO SIN NECESIDAD DE TOCAR EL MODELO DEL TIPO 
-# DE LA BASE DE DATOS, COLOCANDOLO COMO UN METODO
+AUTH_USER_MODEL = "sinapsis_cliente.SinapsisUser" 
 
-AUTH_USER_MODEL = "custom_user.CustomUser"
-
-LOGOUT_REDIRECT_URL = ''

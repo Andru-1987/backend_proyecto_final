@@ -50,12 +50,16 @@
         {% endif %}
     </div>
     <div>
+        {% if review_list %}
         <h1> Busqueda por libro</h1>
         <form action="{% url 'reviews:searcher' %}" method=GET>
 
             <input type="text" name="search">
             <button type="submit">Buscar</button>
         </form>
+        {% else %}
+        <h1> No hay reviews aún</h1>
+        {% endif %}
     </div>
 </div>
 

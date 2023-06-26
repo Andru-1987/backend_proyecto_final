@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+    db:
+        image: postgres
+        container_name: postgres
+        restart: always
+        environment:
+            - POSTGRES_USER=postgres_admin
+            - POSTGRES_PASSWORD=admin
+            - POSTGRES_DB=sinapsis_web
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./vol_bd:/var/lib/postgresql/data
