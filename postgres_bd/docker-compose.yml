@@ -8,7 +8,7 @@ services:
         environment:
             - POSTGRES_USER=postgres_admin
             - POSTGRES_PASSWORD=admin
-            - POSTGRES_DB=sinapsis_web
+
         ports:
             - "5432:5432"
         volumes:
