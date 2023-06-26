@@ -31,14 +31,22 @@
                 <li class="{% if request.path == url %}active{% endif %}">
                     <a href="{{ url }}">BOOKS</a>
                 </li>
-                {% url 'books:all' as url %}
-                <li><a href="">CONTACT</a></li>
-                {% url 'books:all' as url %}
-                <li><a href="">SALES</a></li>
+                {% url 'stores:all' as url %}
+                <li class="{% if request.path == url %}active{% endif %}"><a href="{{ url }}">CONTACT</a></li>
+
+                {% url 'reviews:create' as url %}
+                <li class="{% if request.path == url %}active{% endif %}"><a href="{{ url }}">CREAR REVIEW</a></li>
+
             </ul>
         </div>
     </header>
     <main>
+        <div>
+            <h3>Bienvenido! {{ user.email }}</h3>
+            <button class="extra">
+                <a href="{% url 'logout' %}">Logout</a>
+            </button>
+        </div>
 
         {% block content%}
         {% endblock %}

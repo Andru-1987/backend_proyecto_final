@@ -6,11 +6,4 @@ class CustomUserForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = '__all__'
-        
-        # ['email',
-        #         'password',
-        #         'nombre',
-        #         'apellido',
-        #         ]
-    
+        fields ="__all__"

@@ -2,6 +2,61 @@
 
 {% block content %}
 
-<h1>BLOG STORE</h1>
+<div class="review-container">
+    <div>
+        {% if filtered %}
+        {% for review in filtered %}
+        <div>
+            <h2>
+                Recomendado por: {{review.usuario}}
+            </h2>
+            <h3>{{review.book.nombre}}</h3>
+            <div>
+                <label for="">Stars</label>
+                <input type="range" min="1" max="10" value="{{review.stars}}" disabled readonly>
+                <span>{{review.stars}}</span>
+            </div>
+            <p>
+                {{review.review_text}}
+            </p>
+            <p>
+                Fecha de la review : {{review.date_review}}
+            </p>
+            <hr>
+        </div>
+        {% endfor %}
+        {% else%}
+        {% for review in review_list %}
+        <div>
+            <h2>
+                Recomendado por: {{review.usuario}}
+            </h2>
+            <h3>{{review.book.nombre}}</h3>
+            <div>
+                <label for="">Stars </label>
+                <input type="range" min="1" max="10" value="{{review.stars}}" disabled readonly>
+                <span>{{review.stars}}</span>
+            </div>
+            <p>
+                {{review}}
+            </p>
+            <p>
+                Fecha de la review : {{review.date_review}}
+            </p>
+            <hr>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+    </div>
+    <div>
+        <h1> Busqueda por libro</h1>
+        <form action="{% url 'reviews:searcher' %}" method=GET>
+
+            <input type="text" name="search">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}

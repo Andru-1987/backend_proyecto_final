@@ -21,11 +21,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 APPS = [
-    "cliente_user",
+
     "custom_user",
     "login_app",
     "books",
     "reviews",
+    "cliente"
 ]
 
 LOCAL_APPS =[ f"apps_sinapsis.{app}" for app in APPS ]
@@ -120,8 +121,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+import os
 
 STATIC_URL = "static/"
+
+MEDIA_URL = "media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -137,3 +143,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # DE LA BASE DE DATOS, COLOCANDOLO COMO UN METODO
 
 AUTH_USER_MODEL = "custom_user.CustomUser"
+
+LOGOUT_REDIRECT_URL = ''

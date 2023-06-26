@@ -1,12 +1,14 @@
 from typing import Any, Dict
 from django.shortcuts import render
 
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy , reverse
 from .models import Book , GENERO
 from .models import Store
 
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
+from django.views.generic.edit import DeleteView , CreateView , UpdateView 
 
 # Create your views here.
 class BooksBaseView():
@@ -24,3 +26,83 @@ class BooksListView(BooksBaseView,ListView):
     """
     Lista de Books
     """
+    
+class BookDetailView(BooksBaseView,DetailView):
+    template_name = "blog_detail.html"
+    
+class BookCrearView(BooksBaseView,CreateView):
+    template_name = "book_create.html"
+    extra_context = {
+        "tipo" : "Agregar"
+    }
+    
+    def get_success_url(self) -> str:
+        return reverse('books:all')
+    
+class BookUpdateView(BooksBaseView,UpdateView):
+    template_name = "book_create.html"
+    
+    extra_context = {
+        "tipo" : "Modificar"
+    }
+    
+    def get_success_url(self) -> str:
+        return reverse('books:all')
+    
+class BookDeleteView(BooksBaseView,DeleteView):
+    
+    def get_success_url(self) -> str:
+        return reverse('books:all')
+    
+    
+    
+    
+    
+
+class StoreBaseView():
+    template_name = 'contact_list.html'
+    model = Store
+    fields = '__all__'
+    sucess_url = reverse_lazy('stores:all')
+    
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        return context
+
+class StoreListView(StoreBaseView,ListView):
+    """
+    Lista de Stores
+    """
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["filtered"] = Store.objects.all().values()
+        return context
+    
+    
+class StoreDetailView(StoreBaseView,DetailView):
+    template_name = "contact_detail.html"
+    
+    
+class StoreCreateView(StoreBaseView,CreateView):
+    template_name = "store_create.html"
+    extra_context = {
+        "tipo" : "Agregar"
+    }
+    
+    def get_success_url(self) -> str:
+        return reverse('stores:all')
+    
+    
+    
+class StoreUpdateView(StoreBaseView,UpdateView):
+    template_name = "store_create.html"
+    extra_context = {
+        "tipo" : "Modificar"
+    }
+    
+    def get_success_url(self) -> str:
+        return reverse('stores:all')
+    
+class StoreDeleteView(StoreBaseView,DeleteView):    
+    def get_success_url(self) -> str:
+        return reverse('stores:all')

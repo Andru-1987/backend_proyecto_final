@@ -2,46 +2,51 @@
 
 {% block content %}
 
-{% for book in book_list%}
-<div>
-    <div>
-        {{ book.nombre}}
-    </div>
+<div class="book-container">
+    <h1><a href="{% url 'books:crear' %}"> Agregar Book</a></h1>
+    {% for book in book_list%}
+    <div class="container">
 
-    {% for genero in book.genero.all%}
-    <div>
-        {{ genero }}
+
+        <p class="nombre">
+            <a href="{% url 'books:detail' book.id %}" class="name-id">
+
+                {{ book.nombre | capfirst }}
+            </a>
+        </p>
+
+        <p class="sinapsis">Sinapsis:
+            {{book.short_sinapsis}}
+        </p>
+        <p>{% if book.currency == 'PS'%}
+            Pesos Argentinos
+            {% elif book.currency == 'EU' %}
+            Euros
+            {%else%}
+            Dolares
+            {% endif %}
+            {{book.precio}}</p>
+
+
+        <h3>Tiendas</h3>
+        <div class="wrapper">
+            {% for store in book.store.all%}
+            <span class="store">
+                {{store}}
+            </span>
+
+            {% endfor%}
+        </div>
+
+        <div class="genero">
+            {% for genero in book.genero.all%}
+            <p class="pick-choice">
+                {{ genero | capfirst }}
+            </p>
+            {% endfor %}
+        </div>
     </div>
     {% endfor %}
-
-    <hr>
-    <h3>Tiendas</h3>
-    <div>
-
-        {% for store in book.store.all%}
-
-        <span>
-            {{store}}
-        </span>
-
-        {% endfor%}
-    </div>
-
-    <p>ISBN: {{book.isbn}}</p>
-    <p>Paginas : {{book.paginas}}</p>
-    <p>PRECIO: {% if book.currency == 'PS'%}
-        Pesos Argentinos
-        {% elif book.currency == 'EU' %}
-        Euros
-        {%else%}
-        Dolares
-        {% endif %}
-        {{book.precio}}</p>
-    <hr>
-    <p>Sinapsis:
-        {{book.sinapsis}}
-    </p>
 </div>
-{% endfor %}
 
 {% endblock %}
