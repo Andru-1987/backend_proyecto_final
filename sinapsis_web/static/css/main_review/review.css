@@ -1,0 +1,76 @@
+@import url("./review_create.css");
+
+.review-container {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    box-sizing: border-box;
+}
+
+.review-container > div:nth-child(1) {
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+.review-container > div:nth-child(2) {
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+
+.review-container > div:nth-child(2) > form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.review-container > div:nth-child(2) > form > input {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #222;
+
+    color: white;
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+.review-container > div:nth-child(2) > form > input:focus {
+    background-color: transparent;
+}
+
+.review-container > div:nth-child(2) > form > button {
+    border: transparent;
+    font-weight: 900;
+    font-size: 12px;
+    background-color: #111;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+}
+
+.review-container > div:nth-child(2) > form > button:hover {
+    background-color: #355;
+    cursor: pointer;
+}
+
+input[type="range"]::after {
+    content: "⭐️";
+    display: block;
+    position: relative;
+    left: 2rem;
+}

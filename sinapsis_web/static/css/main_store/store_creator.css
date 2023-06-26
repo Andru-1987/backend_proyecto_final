@@ -1,0 +1,40 @@
+.store-creator {
+    height: 90%;
+
+    display: flex;
+    gap: 4rem;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.store-creator form input:not(.extra) {
+    width: 100%;
+}
+
+.store-creator input,
+.store-creator textarea {
+    border: none;
+    border-bottom: 1px solid #222;
+    background-color: transparent;
+
+    color: white;
+    font-size: 0.9rem;
+}
+
+.store-creator label {
+    font-size: 1rem;
+}
+
+.store-creator a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    color: #999;
+}

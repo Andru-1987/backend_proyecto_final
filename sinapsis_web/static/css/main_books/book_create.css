@@ -1,0 +1,39 @@
+.book-creator {
+    height: 90%;
+
+    display: flex;
+    gap: 4rem;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.book-creator form input:not(.extra) {
+    width: 100%;
+}
+
+.book-creator select,
+.book-creator input,
+.book-creator textarea {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #222;
+    background-color: transparent;
+
+    color: white;
+    font-size: 0.9rem;
+}
+
+.book-creator label {
+    font-size: 1rem;
+}
+
+.book-creator a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.book-creator textarea {
+    text-align: center;
+}

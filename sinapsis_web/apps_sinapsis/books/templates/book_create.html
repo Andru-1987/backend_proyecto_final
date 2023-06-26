@@ -1,0 +1,14 @@
+{% extends 'sinapsis_base.html' %}
+
+{% block content %}
+
+<div class="book-creator">
+    <form method=POST enctype="multipart/form-data">
+        <h1> Agregar un libro</h1>
+        {% csrf_token %}
+        <div class="formulario">{{form.as_p}}</div>
+        <input type="submit" class="extra" value="{{ tipo }}" />
+    </form>
+    <a href="{% url 'books:all' %}"> Books </a>
+</div>
+{% endblock %}

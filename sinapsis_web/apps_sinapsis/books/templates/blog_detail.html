@@ -1,0 +1,66 @@
+{% extends 'sinapsis_base.html' %}
+
+{% block content %}
+<div class="book-detail">
+    <div class="book-options">
+        {% if book.image_url %}
+        <img src="{{ book.image_url.url }}" alt="{{book.isbn}}" class="book-img">
+        {% else %}
+        <img src="/media/images/bg_book.jpg" alt="{{book.isbn}}" class="book-img">
+        {% endif %}
+
+        <div class="edition-option-book">
+            <button class="update">
+                <a href="{% url 'books:update' book.id %}">Modificar</a>
+            </button>
+
+            <form method="post" action="{% url 'books:delete' book.id%}">
+                {% csrf_token %}
+                <button type="submit" class="delete"> Borrar </button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <h1>Nombre del Libro : {{book.nombre}}</h1>
+        <h3>ISBN : {{ book.isbn }}</h3>
+        <p> El libro contiene {{book.paginas}} páginas</p>
+        <p>{% if book.currency == 'PS'%}
+            Pesos Argentinos
+            {% elif book.currency == 'EU' %}
+            Euros
+            {%else%}
+            Dolares
+            {% endif %}
+            {{book.precio}}</p>
+
+        <p>{{book.release_date}}</p>
+        <p>Unidades Disponibles : {{book.cantidad}}</p>
+        <hr>
+        <h3>
+            Tiendas disponibles
+        </h3>
+        <div class="store-container">
+            {% for store in book.store.all%}
+            <span class="store pick-choice">
+                <a href="{% url 'stores:detail' store.id %}">{{store}}</a>
+            </span>
+
+            {% endfor%}
+        </div>
+
+        <div class="genero">
+            Generos asociados al libro:
+            {% for genero in book.genero.all%}
+            <p class="pick-choice">
+                {{ genero | capfirst }}
+            </p>
+            {% endfor %}
+        </div>
+        <hr>
+        <p>
+            Sinapsis : {{book.sinapsis}}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

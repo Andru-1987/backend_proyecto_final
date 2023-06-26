@@ -1,0 +1,38 @@
+main {
+    color: white;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.book-detail {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.book-detail > div {
+    height: 100%;
+}
+
+.book-detail > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.book-detail img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.store-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 1rem;
+}

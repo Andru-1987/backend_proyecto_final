@@ -1,0 +1,19 @@
+.book-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.edition-option-book {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.edition-option-book a:visited,
+.edition-option-book a:link,
+.edition-option-book a:active {
+    color: white;
+    text-decoration: none;
+}

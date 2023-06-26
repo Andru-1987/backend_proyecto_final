@@ -1,0 +1,34 @@
+.edition-option {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.extra,
+.delete,
+.update {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background-color: #444;
+    margin: 10px;
+}
+
+.delete:hover {
+    opacity: 0.4;
+    background-color: red;
+    color: black;
+    cursor: pointer;
+}
+
+.extra:hover,
+.update:hover {
+    opacity: 0.4;
+    background-color: blueviolet;
+    color: black;
+    cursor: pointer;
+}

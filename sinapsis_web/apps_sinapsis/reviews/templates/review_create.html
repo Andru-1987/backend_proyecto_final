@@ -1,0 +1,15 @@
+{% extends 'sinapsis_base.html' %}
+
+{% block content %}
+
+<div class="review-creator">
+    <form method=POST action="{% url 'reviews:create' %}">
+        <h1> CREATE A REVIEW</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="extra"> Crear</button>
+    </form>
+    <a href="{% url 'reviews:all' %}"> Books </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'sinapsis_base.html' %}
+
+{% block content %}
+
+<div class="store-creator">
+    <form method=POST>
+        <h1> Agregar una tienda</h1>
+        {% csrf_token %}
+        <div class="formulario">{{form.as_p}}</div>
+        <input type="submit" class="extra" value="{{ tipo }}" />
+    </form>
+    <a href="{% url 'stores:all' %}"> Stores </a>
+</div>
+{% endblock %}

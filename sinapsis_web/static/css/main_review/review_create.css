@@ -1,0 +1,46 @@
+.review-creator {
+    height: 90%;
+
+    display: flex;
+    gap: 4rem;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.review-creator form input:not(.extra) {
+    width: 100%;
+}
+
+.review-creator input,
+.review-creator select,
+.review-creator textarea {
+    border: none;
+    border-bottom: 1px solid #222;
+    background-color: transparent;
+
+    color: white;
+    font-size: 0.9rem;
+}
+
+.review-creator select {
+    color: white;
+    background-color: #222;
+}
+
+.review-creator label {
+    font-size: 1rem;
+}
+
+.review-creator a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    color: #999;
+}

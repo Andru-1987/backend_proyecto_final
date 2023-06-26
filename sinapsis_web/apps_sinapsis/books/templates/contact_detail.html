@@ -1,0 +1,22 @@
+{% extends 'sinapsis_base.html' %}
+
+{% block content %}
+
+<div class="container-store-location">
+    <h1>Nombre de la tienda: {{store.name}}</h1>
+    <p>Lugar: {{store.location}}</p>
+
+    {% if store.status == True %}
+    <h3>La tienda está disponible!</h3>
+    <p>Horarios de atencion</p>
+    <p>{{store.horarios}}</p>
+    {% else %}
+    <h3>La tienda no se encuentra disponible!</h3>
+
+    {% endif %}
+
+
+    <iframe src="{{store.location_src}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+{% endblock %}
